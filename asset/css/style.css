@@ -1,0 +1,499 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* para que no crezcan mis margenes más de lo que le doy */
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+body {
+    /* efecto degradado */
+     background: linear-gradient(
+        90deg,
+        rgb(150, 93, 35) 25%,
+        rgb(66, 33, 33) 75%);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: grid;
+}
+
+/* h1 {
+    font-size: 3.5em;
+} */
+
+
+/* ESTILO PARA MI HEADER */
+
+/* contenedor padre */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 60px;
+}
+
+.encabezado {
+    padding: 32px 0;
+    background-color: black;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* aqui el menu siempre está al frente */
+    z-index: 1000;
+}
+
+.menu .navbar ul li {
+    position: relative;
+    float: left;
+}
+
+.menu .navbar ul li a {
+    font-size: 18px;
+    padding: 20px;
+    color: rgb(246, 183, 12);
+    display: block;
+}
+
+.menu .navbar ul li a:hover {
+    color: rgb(127, 92, 16);
+     }
+
+#menu {
+    display: none;
+}
+
+.menu-icono {
+    width: 25px;
+}
+
+.menu label {
+    cursor: pointer;
+    display: none;
+}
+
+
+.logo1 {
+    height:60px;
+    
+}
+
+/* responsive para mi header */
+@media(max-width:991px) {
+    .menu {
+        padding: 30px;
+    }
+
+    .menu label {
+        display: initial;
+    }
+
+    .encabezado {
+        padding: 40px 0;
+    }
+
+    .menu .navbar {
+         position: absolute;
+         top: 100%;
+         left: 0;
+         right: 0;
+         background-color:#181b21 ;
+         display: none;
+    }
+
+    .menu .navbar ul li {
+        width: 100%;
+    }
+
+    #menu:checked ~ .navbar {
+        display: initial;
+    }
+
+}
+/* acaba header */
+
+
+/* ESTILO PARA MI CARRUSEL */
+
+/* mi contenedor padre carrusel */
+.carrusel {
+    display: flex;
+    flex-wrap: nowrap;
+    /* deslizamineto en el carrusel */
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0;
+    height: 500px;
+    background-size: cover;
+   }
+
+/* cibtebedir hijo de carrusel */
+.item {
+    object-fit: cover;
+    /* para que no encoja la imagen */
+    flex: 1 0 auto;
+    scroll-snap-align: start;
+}
+
+@media (max-width:768px) {
+ .carrusel {
+    display: flex;
+    background-size: cover;
+    height: 200px;
+ }
+}
+/* termina carrusel */
+
+
+/* ANIMACIÓN DE TEXTO */
+
+/* aquí empiezo el movimiento de texto */
+@keyframes slideAnimation {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.movimiento {
+    color: #fff;
+    margin-left: 30px;
+    margin-right:30px;
+    position: absolute;
+    animation: slideAnimation 7s linear infinite;
+
+}
+/* termina mi mivimiento de texto */
+
+/* zoom y circulo de fotos */
+.zoom-foto {
+    display: flex;
+    /* ajustar imagenes */
+    background-size: cover;
+    margin: 0 auto;
+    gap: 4em;
+    margin-top: 10%;
+    margin-bottom: 10%;
+   
+}
+
+.zoom-foto .circulo img {
+    height: 300px;
+    width: 300px;
+    /* da la forma circular */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 2s;
+}
+
+.zoom-foto .circulo img:hover {
+    transform: scale(1.1);
+    transition: 2s;
+}
+
+@media (max-width: 768px) {
+    .zoom-foto {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 15%;
+        align-items: center;
+    }
+    .zoom-foto .circulo img {
+        height: 150px;
+        width: 150px;
+
+    }
+}
+
+/* animación de búsqueda */
+.caja {
+    position: absolute;
+    left: 55%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+div input {
+    outline: none;
+    box-sizing: border-box;
+    height: 50px;
+    width: 0;
+    padding: 0 20px;
+    color: rgb(145, 102, 27);
+    border-radius: 50px;
+    font-size: 20px;
+    border: 1px solid black;
+    transition: all .7s ease;
+}
+
+
+::placeholder {
+    color: rgb(54, 50, 50);
+}
+
+.btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70px;
+    height: 70px;
+    background: black;
+    line-height: 70px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s;    
+}
+
+.btn i {
+    font-size: 25px;
+    color: white;
+    line-height: 70px;
+    transition: all .7s ease;
+}
+
+.caja:hover input {
+    width: 350px;
+}
+
+.caja:hover i {
+    transform: rotate(-360deg);
+}
+
+.btn:hover {
+    background: rgb(70, 61, 14);
+}
+
+@media (max-width: 768px) {
+    .caja {
+        top: 30%
+    }
+}
+
+/* ESTILO MAPA */
+
+.mapa {
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background-color: #181b21;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+.mapa h1 {
+    text-align: center;
+    color: #767676;
+}
+
+.framemapa {
+    border-radius: 5px;
+    margin: 15px;
+}
+
+@media (max-width: 768px) {
+   .mapa { 
+    width: fit-content;
+    height: 200px;
+   }
+}
+
+/* pie de pagina */
+footer {
+    width: 100%;
+    background: #000;
+    background: linear-gradient(to right, #00093c, #2d0b00);
+    color: #fff;
+    padding: 100px 0 30px;
+    border-top-left-radius: 125px;
+    font-size: 13px;
+    line-height: 20px;    
+}
+
+.fila {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.columna {
+    flex-basis: 25%;
+    padding: 10px;
+}
+
+.columna:nth-child(2), .columna:nth-child(3) {
+    flex-basis: 15%;
+}
+
+.logo2 {
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+.columna h3 {
+    width: fit- fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.email-id {
+    width: fit-content;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+ul li {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+ul li a {
+    /* quitar la linea del link */
+    text-decoration: none;
+    color: #fff;
+}
+
+form {
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+
+/* clase far */
+form .far {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+form input {
+    /* nuestra barra de mail */
+    width: 100%;
+    background: transparent;
+    color: #ccc;
+    border: 0;
+    outline: none;
+}
+
+form button {
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+form button .fas {
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* estilo de iconos de redes */
+.iconos-redes .fab {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* línea de separación */
+hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+
+/* centrado de copyright */
+.copyright {
+    text-align: center;
+}
+
+/* línea con animación */
+.underline {
+    width: 100%;
+    height: 5px;
+    background: #767676;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+}
+
+.underline span {
+    width: 15px;
+    height: 100%;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: moving 2s linear infinite;
+}
+
+/* animación para la línea */
+@keyframes moving {
+    0% {
+        left: -20px;
+    }
+  100% {
+        left: 100%;
+    }
+} 
+
+/* responsive para mi footer */
+@media (max-width: 768px) {
+    footer {
+        bottom: unset;
+    }
+
+    .columna {
+        flex-basis: 100%;
+    }
+
+    .columna:nth-child(2), .columna:nth-child(3) {
+        flex-basis: 100%;
+    }
+
+}
+
+/* nosotros.html */
+#poster {
+    height: 200px;
+    width: 300px;
+    transition: box-shadow .1s, transform;
+    background: url(https://www.clarin.com/2017/06/09/BJuymN_M-_1200x0.jpg)
+    no-repeat 
+    center;
+    
+    background-size: cover;
+}
+
+#poster:hover {
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+}
