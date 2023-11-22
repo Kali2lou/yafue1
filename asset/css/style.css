@@ -167,7 +167,7 @@ body {
     color: #fff;
     margin-left: 30px;
     margin-right:30px;
-    position: absolute;
+    position: relative;
     animation: slideAnimation 7s linear infinite;
 
 }
@@ -316,7 +316,7 @@ div input {
 footer {
     width: 100%;
     background: #000;
-    background: linear-gradient(to right, #00093c, #2d0b00);
+    background: linear-gradient(to right, #080e31, #2d0b00);
     color: #fff;
     padding: 100px 0 30px;
     border-top-left-radius: 125px;
@@ -483,17 +483,26 @@ hr {
 }
 
 /* nosotros.html */
-#poster {
-    height: 200px;
-    width: 300px;
+.poster {
+    height: 400px;
+    width: 600px;
     transition: box-shadow .1s, transform;
-    background: url(https://www.clarin.com/2017/06/09/BJuymN_M-_1200x0.jpg)
+   
+    background:
     no-repeat 
     center;
     
     background-size: cover;
 }
-
-#poster:hover {
+/* sombra para la imagen */
+.poster:hover {
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+}
+
+
+
+.card-body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: black;
+    color: bisque;
 }
